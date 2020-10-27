@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication
+    x:Class="DatarynxApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com">
+    <Application.Resources>
+
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
+            <Color x:Key="Gray-F0">#ebecef</Color>
+            <Color x:Key="Gray-E4">#ced2d9</Color>
+            <Color x:Key="Gray-E0">#b2b8c2</Color>
+            <Color x:Key="Gray-DD">#959eac</Color>
+            <Color x:Key="Gray-AB">#788396</Color>
+            <Color x:Key="Gray-94">#606a7b</Color>
+            <Color x:Key="Gray-6F">#4a515e</Color>
+            <Color x:Key="Gray-56">#333942</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="Transparent-background">#72000000</Color>
+            <Color x:Key="GradientLight">#1976D2</Color>
+
+            <Style TargetType="NavigationPage">
+
+                <Setter Property="BarBackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="BarTextColor" Value="{StaticResource GradientLight}" />
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage
+    x:Class="DatarynxApp.Views.MasterDetails.PrismMasterDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="http://prismlibrary.com"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <MasterDetailPage.Master>
+
+        <NavigationPage Title="&#9776;" Icon="ic_hamburger.png">
+            <x:Arguments>
+                <ContentPage NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+                    <StackLayout Orientation="Vertical">
+
+                        <StackLayout
+                            Padding="10"
+                            BackgroundColor="{StaticResource GradientLight}"
+                            HeightRequest="100"
+                            VerticalOptions="Start">
+
+                            <Label
+                                Margin="5,0,0,0"
+                                FontFamily="MontserratSemiBoldFont"
+                                FontSize="Small"
+                                Text="Ghanashyam behera"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                            <Label
+                                Margin="5,0,0,0"
+                                FontFamily="MontserratSemiBoldFont"
+                                FontSize="Small"
+                                Text="ghanashyambehera007@gmail.com"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+
+                        <ListView
+                            ItemsSource="{Binding MenuItems}"
+                            RowHeight="60"
+                            SelectedItem="{Binding SelectedMenuItem}"
+                            SeparatorColor="LightGray"
+                            SeparatorVisibility="Default"
+                            VerticalOptions="Start">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <!--  Main design for our menu items  -->
+                                        <StackLayout
+                                            Padding="20,10,0,10"
+                                            Orientation="Horizontal"
+                                            Spacing="10"
+                                            VerticalOptions="Start">
+
+                                            <Image
+                                                HeightRequest="25"
+                                                Source="{Binding Icon}"
+                                                VerticalOptions="Center"
+                                                WidthRequest="25" />
+
+                                            <Label
+                                                FontFamily="MontserratRegularFont"
+                                                FontSize="Medium"
+                                                Text="{Binding Title}"
+                                                TextColor="Black"
+                                                VerticalOptions="Center" />
+                                        </StackLayout>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Behaviors>
+                                <prism:EventToCommandBehavior Command="{Binding NavigateCommand}" EventName="ItemTapped" />
+                            </ListView.Behaviors>
+                        </ListView>
+                    </StackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Master>
+
+</MasterDetailPage>

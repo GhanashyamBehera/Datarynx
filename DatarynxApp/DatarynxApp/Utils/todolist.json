@@ -1,0 +1,42 @@
+[
+    {
+      "week-no": "wk35",
+      "week-date": "08-09-2020",
+      "store-name": "34492783/NEW RANDOLPH STORE 0045",
+      "store-address": "630 3RD ST WEST, RANDOLPH AFB TX, 78150",
+      "coding-type": "Item Coding",
+      "Task-State": "In-Progress"
+    },
+    {
+      "week-no": "wk36",
+      "week-date": "18-09-2020",
+      "store-name": "24497375/NEW RANDOLPH STORE 0046",
+      "store-address": "530 3RD ST WEST, RANDOLPH JHG, 78160",
+      "coding-type": "Item Coding",
+      "Task-State": "Not Started"
+    },
+    {
+      "week-no": "wk37",
+      "week-date": "05-10-2020",
+      "store-name": "14485630/NEW RANDOLPH STORE 0047",
+      "store-address": "430 3RD ST WEST, RANDOLPH AFB, 78155",
+      "coding-type": "Item Coding",
+      "Task-State": "In-Progress"
+    },
+    {
+      "week-no": "wk38",
+      "week-date": "12-10-2020",
+      "store-name": "14474294/NEW RANDOLPH STORE 0048",
+      "store-address": "450 3RD ST WEST, RANDOLPH AGH, 78150",
+      "coding-type": "Item Coding",
+      "Task-State": "Not Started"
+    },
+    {
+      "week-no": "wk39",
+      "week-date": "15-10-2020",
+      "store-name": "14492856/NEW RANDOLPH STORE 0049",
+      "store-address": "480 3RD ST WEST, RANDOLPH ARM, 78140",
+      "coding-type": "Item Coding",
+      "Task-State": "In-Progress"
+    }
+]

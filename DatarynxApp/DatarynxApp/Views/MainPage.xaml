@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DatarynxApp.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:DatarynxApp.Converters"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    Title="{Binding Title}"
+    ios:Page.UseSafeArea="true">
+
+    <NavigationPage.TitleView>
+        <Grid ColumnDefinitions="AUTO,*,AUTO,AUTO" HorizontalOptions="FillAndExpand">
+            <Label
+                Grid.Column="0"
+                FontAttributes="Bold"
+                FontFamily="MontserratSemiBoldFont"
+                FontSize="Medium"
+                Text="TO-Do List"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+
+            <Image
+                Grid.Column="1"
+                Aspect="AspectFit"
+                HeightRequest="10"
+                HorizontalOptions="Start"
+                Source="indicates_status.png"
+                VerticalOptions="Center"
+                WidthRequest="10" />
+
+            <Image
+                Grid.Column="2"
+                HeightRequest="20"
+                Source="refreshing.png"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+            <Image
+                Grid.Column="3"
+                Margin="10"
+                HeightRequest="20"
+                Source="filter.png"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:StartAuditButtonConverters x:Key="startAuditButtonConverters" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout
+            Margin="10,5,10,5"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Grid ColumnDefinitions="auto,*,auto">
+
+                <Label Grid.Row="0" Margin="10,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontFamily="MontserratRegularFont"
+                                FontSize="{OnPlatform Android='15',
+                                                      iOS='15'}"
+                                Text="Sort by " />
+                            <Span
+                                FontFamily="MontserratSemiBoldFont"
+                                FontSize="{OnPlatform Android='20',
+                                                      iOS='20'}"
+                                Text="BDD"
+                                TextColor="{StaticResource GradientLight}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Image
+                    Grid.Column="1"
+                    Margin="0,5,0,0"
+                    Aspect="AspectFill"
+                    HeightRequest="20"
+                    HorizontalOptions="Start"
+                    Source="arrow_down.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20">
+                    <Image.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                            TargetType="Image"
+                            Value="True">
+                            <Setter Property="Source" Value="arrow_up.png" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+
+                <Image Grid.Column="2" Source="information" />
+
+
+            </Grid>
+
+            <CollectionView
+                Margin="5"
+                ItemsSource="{Binding ToDoListItemSources}"
+                SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="5">
+                            <Frame
+                                BackgroundColor="{StaticResource Gray-F0}"
+                                CornerRadius="10"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand">
+
+                                <Grid RowDefinitions="auto, auto, auto, auto, auto" RowSpacing="0">
+
+                                    <Grid
+                                        Grid.Row="0"
+                                        ColumnDefinitions="*,auto"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label
+                                            Grid.Column="0"
+                                            FontFamily="MontserratRegularFont"
+                                            Text="{Binding WeekNo}"
+                                            TextColor="{StaticResource Gray-94}" />
+                                        <Image
+                                            Grid.Column="1"
+                                            HeightRequest="30"
+                                            Source="information.png"
+                                            VerticalOptions="Center"
+                                            WidthRequest="30" />
+                                    </Grid>
+
+                                    <Label
+                                        Grid.Row="1"
+                                        FontFamily="MontserratRegularFont"
+                                        Text="{Binding WeekDate}"
+                                        TextColor="{StaticResource Gray-94}" />
+
+                                    <Label
+                                        Grid.Row="2"
+                                        FontFamily="MontserratSemiBoldFont"
+                                        Text="{Binding StoreName}"
+                                        TextColor="{StaticResource Black}" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        FontFamily="MontserratSemiBoldFont"
+                                        Text="{Binding StoreAddress}"
+                                        TextColor="{StaticResource Black}" />
+
+                                    <Grid
+                                        Grid.Row="4"
+                                        ColumnDefinitions="*,*"
+                                        HorizontalOptions="FillAndExpand">
+                                        <Label
+                                            Grid.Column="0"
+                                            FontFamily="MontserratRegularFont"
+                                            Text="{Binding CodingType}"
+                                            TextColor="{StaticResource Gray-94}"
+                                            VerticalOptions="Center" />
+                                        <Button
+                                            Grid.Column="1"
+                                            BackgroundColor="{StaticResource GradientLight}"
+                                            FontFamily="MontserratRegularFont"
+                                            HeightRequest="40"
+                                            IsVisible="{Binding TaskState, Converter={StaticResource startAuditButtonConverters}}"
+                                            Text="START AUDIT"
+                                            TextColor="{StaticResource White}"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+
+                                </Grid>
+                            </Frame>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>
