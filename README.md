@@ -3,7 +3,7 @@
   Android, iOS.
 # Features:
    The application has been developed with Xamarin Forms with Prism framework, using controls like CollectionView or materials design. Also, we use some community developed NuGet    packages:
-     -Newtonsoft.Json
+     -Newtonsoft.Json Version="12.0.3" \n
      -sqlite-net-pcl
      -Xamarin.Forms
      -Xamarin.Essentials.Interfaces
