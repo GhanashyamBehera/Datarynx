@@ -5,7 +5,7 @@ using AndroidX.AppCompat.App;
 namespace DatarynxApp.Droid
 {
     [Activity(Theme = "@style/MainTheme.Splash",
-              MainLauncher = true,
+              MainLauncher = false,
               NoHistory = true)]
     public class SplashActivity : AppCompatActivity
     {
